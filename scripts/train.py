@@ -101,8 +101,6 @@ def parse_args():
     parser.add_argument('--replay_size', type=int, default=1000000, metavar='N',
                     help='size of replay buffer (default: 10000000)')
     parser.add_argument('--save-interval', default=1000, help="After what number of steps saves model")
-    parser.add_argument('--cuda', action="store_true",
-                    help='run on CUDA (default: False)')
     parser.add_argument('--agent-hparams', default=None, help="Yaml file with Agent parameters")
     return parser.parse_args()
 
