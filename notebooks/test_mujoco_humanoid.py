@@ -1,5 +1,3 @@
-# simple script to test our humanoid
-
 import gym
 from gym.utils.env_checker import check_env
 

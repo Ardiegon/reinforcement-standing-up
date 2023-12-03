@@ -1,1 +1,9 @@
-gym[mujoco]
+--extra-index-url https://download.pytorch.org/whl/cu121
+torch
+torchvision
+torchaudio
+gym
+pybullet
+mujoco==2.3.0
+imageio
+pyyaml
