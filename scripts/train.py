@@ -47,8 +47,8 @@ def train(env, agent, memory, writer, args):
             memory.push(state, action, reward, next_state, mask)
             state = next_state
 
-        if total_numsteps%args.save_interval==0:
-            agent.save_checkpoint(args.env_type, str(total_numsteps))
+            if total_numsteps%args.save_interval==0:
+                agent.save_checkpoint(args.env_type, str(total_numsteps))
 
 
         if total_numsteps > args.num_steps:
@@ -100,7 +100,7 @@ def parse_args():
                     help='Value target update per no. of updates per step (default: 1)')
     parser.add_argument('--replay_size', type=int, default=1000000, metavar='N',
                     help='size of replay buffer (default: 10000000)')
-    parser.add_argument('--save-interval', default=1000, help="After what number of steps saves model")
+    parser.add_argument('--save-interval', default=100000, help="After what number of steps saves model")
     parser.add_argument('--agent-hparams', default=None, help="Yaml file with Agent parameters")
     return parser.parse_args()
 
