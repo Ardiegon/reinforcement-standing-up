@@ -4,8 +4,8 @@ Reinforcement learning with PyBullet simulator. Requires Python version >= 3.8.
 ## Installation (Linux)
 run
 ```bash
-python -m venv .venv
-source .venv/bin/activate
+python -m venv ./venv
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 1. If using windows, it may be that you have to install Visuall C++ Tools lib from here https://visualstudio.microsoft.com/pl/visual-cpp-build-tools/
