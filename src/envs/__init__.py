@@ -1,5 +1,5 @@
-from src.envs.mujoco import build_env as build_mujoco
-from src.envs.pybullet import build_env as build_pybullet
+from src.envs.env_mujoco import build_env as build_mujoco
+from src.envs.env_pybullet import build_env as build_pybullet
 
 def get_env(env_type):
     return {
