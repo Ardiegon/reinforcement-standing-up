@@ -1,1 +1,10 @@
-gym[mujoco]
+--extra-index-url https://download.pytorch.org/whl/cu121
+gym==0.25.2
+gym[other]
+gymnasium
+gymnasium[mujoco]
+mujoco==2.3.7
+stable-baselines3
+pybullet==3.2.5
+shimmy
+imageio
