@@ -30,6 +30,7 @@ def parse_args():
 def main(args):
     env = get_env(args.env_type)
     agent = get_model(get_env("mujoco"), args)
+    # agent = get_model(env, args)
 
     test(agent, env, args=args)
 
