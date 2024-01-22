@@ -1,6 +1,5 @@
 import gym.envs.registration
 import numpy as np
-from gym.utils.env_checker import check_env
 
 # Fix gym and PyBullet compatibility
 from collections import UserDict
@@ -11,14 +10,13 @@ from gym.wrappers import ResizeObservation
 # registry.env_specs = gym.envs.registration.registry
 # gym.envs.registration.registry = registry
 
-from pybullet_envs.gym_locomotion_envs import HumanoidBulletEnv, HumanoidFlagrunHarderBulletEnv
-from pybullet_envs.env_bases import MJCFBaseBulletEnv
+from pybullet_envs.gym_locomotion_envs import HumanoidBulletEnv
+
 import time
-import pybullet
 
 
 class TransformObservation(gym.ObservationWrapper):
-    def __init__(self, env: gym.Env, fps = 30, verbose = True, termination_on_fall = False, steps_to_reset = 100):
+    def __init__(self, env: gym.Env, fps = 30, verbose = False, termination_on_fall = False, steps_to_reset = 1000):
         super().__init__(env, new_step_api=True)
         self.fps = fps
         self.verbose = verbose
@@ -53,6 +51,5 @@ class TransformObservation(gym.ObservationWrapper):
 
 def build_env():
     env = TransformObservation(env=HumanoidBulletEnv(render=True))
-    # env = TransformObservation(env=HumanoidFlagrunHarderBulletEnv(render=True))
     return env
 

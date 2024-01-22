@@ -1,5 +1,4 @@
 import gymnasium as gym
-from gymnasium.utils.env_checker import check_env
 
 def build_env():
     env = gym.make("HumanoidStandup-v4", render_mode="human")

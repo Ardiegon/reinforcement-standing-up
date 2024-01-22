@@ -1,5 +1,4 @@
 import argparse
-import matplotlib.pyplot as plt
 
 
 from src.agents.agent import get_model
@@ -19,8 +18,9 @@ def test(agent, env, args):
             obs, info = env.reset()
 
     if args.plot_rewards:
+        import matplotlib.pyplot as plt
         plt.hist(all_rewards, bins=10, color='gray', edgecolor='black')
-        plt.title('Nagrody zdobywane w 1000 kroków - Mujoco')
+        plt.title('Nagrody zdobywane w 1000 kroków')
         plt.ylabel('Kroki')
         plt.xlabel('Przedział nagród')
         plt.show()
