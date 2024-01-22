@@ -8,3 +8,4 @@ stable-baselines3
 pybullet==3.2.5
 shimmy
 imageio
+matplotlib
