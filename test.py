@@ -1,6 +1,5 @@
 import argparse
 
-
 from src.agents.agent import get_model
 from src.envs import get_env
 
@@ -30,18 +29,15 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--env-type', default="mujoco",
                         help='Choose from mujoco or pybullet')
-    parser.add_argument('--total-timesteps', type=int, default=1000000, metavar='N',
-                        help='maximum number of steps (default: 1000000)')
-    parser.add_argument('--load-model', default="default_model", help='Input model name (default: default_model)')
-    parser.add_argument('--save-interval', default=100000, help="After what number of steps saves model")
-    parser.add_argument('--agent-hparams', default=None, help="Yaml file with Agent parameters")
+    parser.add_argument('--load-model', required=False, help='Input model name (if not specified then creates new model)')
     parser.add_argument('--plot-rewards', '-p', action="store_true", help="plot histogram of rewards gathered in 1000 steps")
+    parser.add_argument("--device", default="auto", help="Device to use for PyTorch (default: auto)")
     return parser.parse_args()
 
 
 def main(args):
     env = get_env(args.env_type)
-    agent = get_model(get_env("mujoco"), args) # agent always get mujoco because of synchronization with length 376 observation vector 
+    agent = get_model(get_env("mujoco"), args) # agent always get mujoco because of synchronization with length 376 observation vector
 
     test(agent, env, args=args)
 

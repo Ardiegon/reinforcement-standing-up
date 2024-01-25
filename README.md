@@ -19,7 +19,7 @@ python train.py
 
 ## Tests
 ```bash
-python test.py --load-model mujoco_trained
+python test.py --load-model trained_models/mujoco_trained
 # or
-python test.py --load-model mujoco_trained --env-type pybullet
+python test.py --load-model trained_models/mujoco_trained --env-type pybullet
 ```
