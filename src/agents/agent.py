@@ -1,14 +1,16 @@
 from stable_baselines3.sac.policies import MlpPolicy
 from stable_baselines3 import SAC
 
+# how many steps of the model to collect transitions for before learning starts
+LEARNING_STARTS = 10000
 
 def create_model(env, args):
     print("Creating new SAC model")
-    return SAC(MlpPolicy, env, verbose=1, learning_starts=10000, use_sde=True, use_sde_at_warmup=True)
+    return SAC(MlpPolicy, env, verbose=1, learning_starts=10000, use_sde=True, use_sde_at_warmup=True, device=args.device)
 
 
 def load_model(model_name, env, args):
-    model = SAC.load(model_name, env=env, device="cuda")
+    model = SAC.load(model_name, env=env, device=args.device)
     print("Model successfully loaded")
     return model
 
